@@ -1,0 +1,19 @@
+<div style="text-align: center;">
+  <h1>Welcome to {{title}}</h1>
+</div>
+
+
+<table class="custom-table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Category</th>
+  </tr>
+  <tr *ngFor="let book of haxBooks">
+    <td>{{book.id}}</td>
+    <td>{{book.name}}</td>
+    <td>{{book.owner}}</td>
+    <td>{{book.category}}</td>
+  </tr>
+</table>
