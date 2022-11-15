@@ -3,7 +3,10 @@
 </div>
 
 
-<table class="custom-table">
+<!--===============================================================================================================
+                                    Use only Observables & subscribe method
+================================================================================================================-->
+<!-- <table class="custom-table">
   <tr>
     <th>Id</th>
     <th>Name</th>
@@ -16,4 +19,57 @@
     <td>{{book.owner}}</td>
     <td>{{book.category}}</td>
   </tr>
+</table> -->
+
+
+
+<!--===============================================================================================================
+                                          Use observable with Async Pipe
+================================================================================================================-->
+<!-- <table class="custom-table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Category</th>
+  </tr>
+  <tr *ngFor="let book of haxBooks | async">
+    <td>{{book.id}}</td>
+    <td>{{book.name}}</td>
+    <td>{{book.owner}}</td>
+    <td>{{book.category}}</td>
+  </tr>
+</table> -->
+
+
+
+
+<!--===============================================================================================================
+                                        Use observable + Async Pipe + ngIf with loader
+================================================================================================================-->
+
+
+<table class="custom-table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Category</th>
+  </tr>
+  <tr *ngIf="haxBooks | async as book; else loading">
+    <td>{{book.id}}</td>
+    <td>{{book.name}}</td>
+    <td>{{book.owner}}</td>
+    <td>{{book.category}}</td>
+  </tr>
 </table>
+
+
+<ng-template #loading>
+  <table>
+    <div style="width: 100%; margin: 0 auto; justify-content: center;">
+      <!-- <mat-progress-bar mode="indeterminate" color="warn" [style]="'width: 100%!important;'"></mat-progress-bar> -->
+      <mat-spinner color="warn"></mat-spinner>
+    </div>
+  </table>
+</ng-template>

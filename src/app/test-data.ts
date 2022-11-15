@@ -4,7 +4,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class TestDataComponent implements InMemoryDbService {
 
   constructor() { }
- 
+
   createDb() {
     let bookDetail = [
       { id: 101, name: 'Angular', owner: 'Google', category: 'ANG', country: 'U.S.A.', email: 'google@gmail.com', mobile: 9988774455 },
@@ -18,7 +18,7 @@ export class TestDataComponent implements InMemoryDbService {
       { id: 109, name: 'React', owner: 'Jordan Walke', category: 'RCT', country: 'Russia', email: 'React@gmail.com', mobile: 1100998877 },
       { id: 110, name: 'ExpressJS', owner: 'Strongloop', category: 'EJS', country: 'London', email: 'ExpressJS@gmail.com', mobile: 9517538520 },
     ];
-    return { bookDetail };
+    return { books: bookDetail };
   }
 
 }

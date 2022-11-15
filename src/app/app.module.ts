@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookService } from './book.service';
 import { TestDataComponent } from './test-data';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { TestDataComponent } from './test-data';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(TestDataComponent)
+    InMemoryWebApiModule.forRoot(TestDataComponent),
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

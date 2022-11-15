@@ -8,13 +8,27 @@ import { Observable } from 'rxjs';
 
 export class BookService {
 
-  bookUrl = "/api/bookDetail";
+  bookUrl = "/api/books";
 
   constructor(private http: HttpClient) { }
 
-  getbooksFromStore(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.bookUrl);
+
+  /*==============================================================================
+                            Use Observables + async pipe
+  ==============================================================================*/
+  // getbooksFromStore(): Observable<Book[]> {
+  //   return this.http.get<Book[]>(this.bookUrl);
+  // }
+
+
+  /*==============================================================================
+                  Use Observables + async pipe + ngIf with loader
+  ==============================================================================*/
+  getbooksFromStore(id: number): Observable<Book> {
+    return this.http.get<Book>(this.bookUrl + "/" + id);
   }
+
+
 }
 
 
@@ -24,6 +38,6 @@ export interface Book {
   owner: string,
   category: string,
   country: string,
-  email:string,
+  email: string,
   mobile: number
 }

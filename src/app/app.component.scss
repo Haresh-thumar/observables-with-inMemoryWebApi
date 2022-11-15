@@ -1,24 +1,42 @@
 .custom-table {
-    margin: 0 auto;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .custom-table,
 tr,
 th {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px 10px 5px 10px;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 10px 5px 10px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .custom-table,
 tr,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px 10px 5px 10px;
-    font-weight: 500;
-    width: 600px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 10px 5px 10px;
+  font-weight: 500;
+  width: 600px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #1E457C;
+  width: 100%;
+  margin: 0 auto;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #E4E8EB;
+}
+
+::ng-deep .mat-progress-bar {
+  background-color: #1E457C;
+  border-radius: 2px;
+  width: 100%;
+  margin: 0 auto;
 }
