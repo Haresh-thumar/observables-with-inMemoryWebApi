@@ -47,9 +47,7 @@
 <!--===============================================================================================================
                                         Use observable + Async Pipe + ngIf with loader
 ================================================================================================================-->
-
-
-<table class="custom-table">
+<!-- <table class="custom-table">
   <tr>
     <th>Id</th>
     <th>Name</th>
@@ -64,12 +62,19 @@
   </tr>
 </table>
 
-
 <ng-template #loading>
-  <table>
-    <div style="width: 100%; margin: 0 auto; justify-content: center;">
-      <!-- <mat-progress-bar mode="indeterminate" color="warn" [style]="'width: 100%!important;'"></mat-progress-bar> -->
-      <mat-spinner color="warn"></mat-spinner>
-    </div>
-  </table>
-</ng-template>
+  <div style="display: flex; justify-content: center; align-items: center; position: absolute; top: 25%; left: 46%;">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+</ng-template> -->
+
+
+
+
+<!--===============================================================================================================
+                                        Use observable + Async Pipe + ngIf with loader
+================================================================================================================-->
+
+<div *ngIf="haxBooks | async as book;">
+  - {{book.name}} - {{book.owner}} - {{book.category}}
+</div>

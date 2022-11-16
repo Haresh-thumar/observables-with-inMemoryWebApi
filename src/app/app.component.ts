@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book, BookService } from './book.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -47,7 +48,23 @@ export class AppComponent implements OnInit {
   /*==============================================================================
                   Use observable + Async Pipe + ngIf with loader
   ==============================================================================*/
-  haxBooks: Observable<Book>;
+  // haxBooks: Observable<Book>;
+
+  // ngOnInit(): void {
+  //   this.getHareshBooks();
+  // }
+
+  // constructor(private bookservice: BookService) { }
+
+  // getHareshBooks() {
+  //   this.haxBooks = this.bookservice.getbooksFromStore(101);
+  // }
+
+
+  /*==============================================================================
+                  Use observable + Async Pipe + ngIf with loader
+  ==============================================================================*/
+  haxBooks: Observable<String>;
 
   ngOnInit(): void {
     this.getHareshBooks();
@@ -56,7 +73,7 @@ export class AppComponent implements OnInit {
   constructor(private bookservice: BookService) { }
 
   getHareshBooks() {
-    this.haxBooks = this.bookservice.getbooksFromStore(101);
+    this.haxBooks = this.bookservice.getbooksFromStore(101).map(book => 'Name' + book.name);
   }
 
 
