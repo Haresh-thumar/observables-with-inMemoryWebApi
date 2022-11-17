@@ -72,9 +72,14 @@
 
 
 <!--===============================================================================================================
-                                        Use observable + Async Pipe + ngIf with loader
+                                      Use Pipe Map Operators + Subscribe Method
 ================================================================================================================-->
+<!-------- Use Pipe Map Method ---------->
+<!-- <div *ngIf="haxBooks | async as bookname;">
+  {{bookname}}
+</div> -->
 
-<div *ngIf="haxBooks | async as book;">
-  - {{book.name}} - {{book.owner}} - {{book.category}}
-</div>
+<!-------- Use Subscribe Method ---------->
+<!-- <div *ngIf="haxBooks">
+  {{haxBooks}}
+</div> -->

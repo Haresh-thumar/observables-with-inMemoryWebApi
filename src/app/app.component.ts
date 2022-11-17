@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book, BookService } from './book.service';
-import { map } from 'rxjs/operators';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -62,20 +62,32 @@ export class AppComponent implements OnInit {
 
 
   /*==============================================================================
-                  Use observable + Async Pipe + ngIf with loader
+                  Use Pipe Map Operators + Subscribe Method
   ==============================================================================*/
-  haxBooks: Observable<String>;
+  // Use Pipe Map Method
+  // haxBooks: Observable<string>;
 
-  ngOnInit(): void {
-    this.getHareshBooks();
-  }
+  // Use Subscribe Method
+  // haxBooks: string;
 
-  constructor(private bookservice: BookService) { }
+  // ngOnInit(): void {
+  //   this.getHareshBooks();
+  // }
 
-  getHareshBooks() {
-    this.haxBooks = this.bookservice.getbooksFromStore(101).map(book => 'Name' + book.name);
-  }
+  // constructor(private bookservice: BookService) { }
 
+  // getHareshBooks() {
+  //****** Use Pipe Map Method ******
+  // this.haxBooks = this.bookservice.getbooksFromStore(102).pipe(map(book => "Name : " + book.name));
+
+  //****** Use Subscribe Method ******
+  //   this.bookservice.getbooksFromStore(101).pipe(map(book => book.name)).subscribe(name => {
+  //     this.haxBooks = name;
+  //   });
+  // }
+
+  constructor() { }
+  ngOnInit(): void { }
 
 
 }
