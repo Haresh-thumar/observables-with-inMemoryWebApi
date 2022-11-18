@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book, BookService } from './book.service';
 import { map } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -86,8 +87,48 @@ export class AppComponent implements OnInit {
   //   });
   // }
 
-  constructor() { }
-  ngOnInit(): void { }
+
+  /*==============================================================================
+                            HttpClient Get Method
+  ==============================================================================*/
+  datasaved = false;
+  bookform: FormGroup;
+  allBooks: Observable<Book[]>;
+
+  constructor(private formbuilder: FormBuilder, private bookservice: BookService) { }
+
+  ngOnInit(): void {
+    this.bookform = this.formbuilder.group({
+      name: ['', [Validators.required]],
+      owner: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+    })
+    this.getHareshBooks();
+  }
+
+
+  onFormSubmit() {
+    this.datasaved = false;
+    let book = this.bookform.value;
+    this.createBook(book);
+    this.bookform.reset();
+  }
+
+  createBook(book: Book) {
+    this.bookservice.createbook(book).subscribe(book => {
+      this.datasaved = true
+      this.getHareshBooks();
+    });
+  }
+
+  getHareshBooks() {
+    this.allBooks = this.bookservice.getbooksFromStore();
+  }
+
+
+  // constructor() { }
+
+  // ngOnInit(): void { }
 
 
 }

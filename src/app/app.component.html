@@ -83,3 +83,61 @@
 <!-- <div *ngIf="haxBooks">
   {{haxBooks}}
 </div> -->
+
+
+
+
+<!--===============================================================================================================
+                                          HttpClient Get Method
+================================================================================================================-->
+<!-- <ul>
+  <li *ngFor="let item of haxBooks">
+    id: {{item.id}}, Name: {{item.name}}, Category: {{item.category}}
+  </li>
+</ul> -->
+
+
+
+<!--===============================================================================================================
+                                          HttpClient Post Method
+================================================================================================================-->
+<p *ngIf="datasaved" ngClass="success">
+  Record Saved Successfully !
+</p>
+
+<form [FormGroup]="bookform" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Owner:</td>
+      <td><input formControlName="owner"></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input formControlName="email"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button [disabled]="bookform.invalid">Submit</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<h3>View</h3>
+<table class="custom-table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Category</th>
+  </tr>
+  <tr *ngFor="let item of allBooks | async">
+    <td>{{item.id}}</td>
+    <td>{{item.owner}</td>
+    <td>{{item.email}</td>
+  </tr>
+</table>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,8 +24,24 @@ export class BookService {
   /*==============================================================================
                   Use Observables + async pipe + ngIf with loader
   ==============================================================================*/
-  getbooksFromStore(id: number): Observable<Book> {
-    return this.http.get<Book>(this.bookUrl + "/" + id);
+  // getbooksFromStore(id: number): Observable<Book> {
+  //   return this.http.get<Book>(this.bookUrl + "/" + id);
+  // }
+
+
+  /*==============================================================================
+                            HttpClient Get Method
+  ==============================================================================*/
+  createbook(book: Book): Observable<Book[]> {
+    let httpheaders = new HttpHeaders().set('Content-Type', 'application/Json');
+    let options = {
+      headers: httpheaders
+    };
+    return this.http.post<Book[]>(this.bookUrl, book, options);
+  }
+
+  getbooksFromStore(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.bookUrl);
   }
 
 
