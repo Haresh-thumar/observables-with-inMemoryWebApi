@@ -42,6 +42,10 @@ export class BookService {
     return this.http.post<Book[]>(this.storeBookUrl, book, options);
   }
 
+  // createbook(body): Observable<Book[]> {
+  //   return this.http.post<Book[]>(this.storeBookUrl, body);
+  // }
+
   getbooksFromStore(): Observable<Book[]> {
     return this.http.get<Book[]>(this.storeBookUrl);
   }
@@ -50,12 +54,12 @@ export class BookService {
 }
 
 
-export interface Book {
-  id: number,
-  name: string,
-  owner: string,
-  category: string,
-  country: string,
-  email: string,
-  mobile: number
+export class Book {
+  id: number;
+  name: string;
+  owner: string;
+  category: string;
+  country: string;
+  email: string;
+  mobile: number;
 }
