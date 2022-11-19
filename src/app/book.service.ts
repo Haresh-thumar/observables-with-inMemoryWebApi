@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 export class BookService {
 
-  bookUrl = "/api/books";
+  // bookUrl = "/api/books";
 
   constructor(private http: HttpClient) { }
 
@@ -32,16 +32,18 @@ export class BookService {
   /*==============================================================================
                             HttpClient Get Method
   ==============================================================================*/
+  storeBookUrl = "http://localhost:3000/posts";
+
   createbook(book: Book): Observable<Book[]> {
     let httpheaders = new HttpHeaders().set('Content-Type', 'application/Json');
     let options = {
       headers: httpheaders
     };
-    return this.http.post<Book[]>(this.bookUrl, book, options);
+    return this.http.post<Book[]>(this.storeBookUrl, book, options);
   }
 
   getbooksFromStore(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.bookUrl);
+    return this.http.get<Book[]>(this.storeBookUrl);
   }
 
 

@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "id": 101,
+      "name": "json-server",
+      "owner": "typicode",
+      "category": "typicode",
+      "country": "typicode",
+      "email": "typicode",
+      "mobile": "typicode"
+    }
+  ]
+}

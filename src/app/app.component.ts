@@ -102,10 +102,10 @@ export class AppComponent implements OnInit {
       name: ['', [Validators.required]],
       owner: ['', [Validators.required]],
       email: ['', [Validators.required]],
+      category: ['', [Validators.required]],
     })
     this.getHareshBooks();
   }
-
 
   onFormSubmit() {
     this.datasaved = false;

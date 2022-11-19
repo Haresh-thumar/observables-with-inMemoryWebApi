@@ -105,7 +105,7 @@
   Record Saved Successfully !
 </p>
 
-<form [FormGroup]="bookform" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="bookform" (ngSubmit)="onFormSubmit()">
   <table>
     <tr>
       <td>Name:</td>
@@ -118,6 +118,10 @@
     <tr>
       <td>Email:</td>
       <td><input formControlName="email"></td>
+    </tr>
+    <tr>
+      <td>Category:</td>
+      <td><input formControlName="category"></td>
     </tr>
     <tr>
       <td colspan="2">
@@ -133,11 +137,14 @@
     <th>Id</th>
     <th>Name</th>
     <th>Owner</th>
+    <th>Email</th>
     <th>Category</th>
   </tr>
   <tr *ngFor="let item of allBooks | async">
     <td>{{item.id}}</td>
-    <td>{{item.owner}</td>
-    <td>{{item.email}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.owner}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.category}}</td>
   </tr>
 </table>
