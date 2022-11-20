@@ -101,9 +101,9 @@
 <!--===============================================================================================================
                                           HttpClient Post Method
 ================================================================================================================-->
-<p *ngIf="datasaved" ngClass="success">
-  Record Saved Successfully !
-</p>
+<div *ngIf="datasaved" ngClass="success">
+    Record Saved Successfully
+</div>
 
 <form [formGroup]="bookform" (ngSubmit)="onFormSubmit()">
   <table>

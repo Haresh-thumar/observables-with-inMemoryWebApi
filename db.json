@@ -6,7 +6,15 @@
       "author": "typicode"
     }
   ],
-  "Book": [
-
+  "book": [
+    {
+      "id": 101,
+      "name": "Angular",
+      "owner": "Google",
+      "category": "ANG",
+      "country": "U.S.A.",
+      "email": "google@gmail.com",
+      "mobile": 9988774455
+    }
   ]
 }

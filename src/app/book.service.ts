@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHandler, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {  pipe, throwError } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,7 @@ export class BookService {
       headers: httpheaders
     };
     return this.http.post<Book[]>(this.storeBookUrl, book, options);
-  }
+ }
 
   // createbook(body): Observable<Book[]> {
   //   return this.http.post<Book[]>(this.storeBookUrl, body);
