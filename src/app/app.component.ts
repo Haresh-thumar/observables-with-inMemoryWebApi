@@ -94,6 +94,9 @@ export class AppComponent implements OnInit {
   datasaved = false;
   bookform: FormGroup;
   allBooks: Observable<Book[]>;
+  bookidToUpdate = null;
+
+  actionBtn: boolean = false;
 
   constructor(private formbuilder: FormBuilder, private bookservice: BookService) { }
 
@@ -104,9 +107,8 @@ export class AppComponent implements OnInit {
       email: ['', [Validators.required]],
       category: ['', [Validators.required]],
     })
-    this.getHareshBooks();
+    this.getAll();
   }
-
 
   onFormSubmit() {
     this.datasaved = false;
@@ -116,15 +118,38 @@ export class AppComponent implements OnInit {
   }
 
   createBook(book: Book) {
-    this.bookservice.createbook(book).subscribe(book => {
+    if (this.bookidToUpdate == null){
+      this.bookservice.createbook(book).subscribe(book => {
+        this.datasaved = true
+        this.getAll();
+        this.bookidToUpdate = null;
+        window.alert("Form submit success...");
+    });
+  }else{
+    book.id = this.bookidToUpdate;
+    this.bookservice.Updatebook(book).subscribe(book => {
       this.datasaved = true
-      this.getHareshBooks();
+      this.getAll();
+      this.bookidToUpdate = null;
+      this.actionBtn=false;
     });
   }
+  }
 
-  getHareshBooks() {
+  booktoedit(bookid:any){
+    this.bookservice.getBookById(bookid).subscribe(book => {
+      this.actionBtn = true;
+      this.bookidToUpdate = bookid;
+      this.bookform.patchValue(book);
+    });
+
+  }
+
+  getAll() {
     this.allBooks = this.bookservice.getbooksFromStore();
   }
+
+
 
 
   // constructor() { }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import {  pipe, throwError } from 'rxjs';
+import { pipe, throwError } from 'rxjs';
 import { catchError, Observable } from 'rxjs';
 
 @Injectable({
@@ -33,24 +33,34 @@ export class BookService {
   /*==============================================================================
                             HttpClient Get Method
   ==============================================================================*/
-  storeBookUrl = "http://localhost:3000/posts";
+  storeBookUrl = "api/books";
 
+  // Post Api Methods
   createbook(book: Book): Observable<Book[]> {
     let httpheaders = new HttpHeaders().set('Content-Type', 'application/Json');
     let options = {
       headers: httpheaders
     };
     return this.http.post<Book[]>(this.storeBookUrl, book, options);
- }
+  }
 
-  // createbook(body): Observable<Book[]> {
-  //   return this.http.post<Book[]>(this.storeBookUrl, body);
-  // }
-
+  // Get Api Methods
   getbooksFromStore(): Observable<Book[]> {
     return this.http.get<Book[]>(this.storeBookUrl);
   }
 
+  getBookById(bookid:string){
+    return this.http.get<Book>(this.storeBookUrl + '/' + bookid);
+  }
+
+  // Put Api Methods
+  Updatebook(book: Book): Observable<number> {
+    let httpheaders = new HttpHeaders().set('Content-Type', 'application/Json');
+    let options = {
+      headers: httpheaders
+    };
+    return this.http.post<number>(this.storeBookUrl + '/' + book.id, book, options);
+  }
 
 }
 

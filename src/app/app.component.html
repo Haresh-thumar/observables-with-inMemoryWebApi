@@ -125,7 +125,8 @@
     </tr>
     <tr>
       <td colspan="2">
-        <button [disabled]="bookform.invalid">Submit</button>
+        <!-- <button [disabled]="bookform.invalid">Add</button> -->
+        <button [disabled]="bookform.invalid">{{actionBtn?'Update':'Add'}}</button>
       </td>
     </tr>
   </table>
@@ -139,6 +140,7 @@
     <th>Owner</th>
     <th>Email</th>
     <th>Category</th>
+    <th>Action</th>
   </tr>
   <tr *ngFor="let item of allBooks | async">
     <td>{{item.id}}</td>
@@ -146,5 +148,6 @@
     <td>{{item.owner}}</td>
     <td>{{item.email}}</td>
     <td>{{item.category}}</td>
+    <td><button type="button" (click)="booktoedit(item.id)">Edit</button></td>
   </tr>
 </table>
