@@ -91,7 +91,8 @@ export class AppComponent implements OnInit {
   /*==============================================================================
                             HttpClient Get Method
   ==============================================================================*/
-  datasaved = false;
+  datasaved: boolean = false;
+  dataDeleted: boolean = false;
   bookform: FormGroup;
   allBooks: Observable<Book[]>;
   bookidToUpdate = null;
@@ -149,7 +150,16 @@ export class AppComponent implements OnInit {
     this.allBooks = this.bookservice.getbooksFromStore();
   }
 
+  deleteBook(bookid:any){
+    this.bookservice.deletebook(bookid).subscribe(book => {
+      this.dataDeleted = true;
+      this.getAll();
+    });
+    this.dataDeleted = false;
+  }
 
+
+  // setInterval timing function in saved & deleted state
 
 
   // constructor() { }

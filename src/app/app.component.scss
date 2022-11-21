@@ -41,6 +41,17 @@ td {
   margin: 0 auto;
 }
 
+.success {
+  color: rgb(0, 158, 0);
+  padding: 10px;
+  background-color: rgb(201, 252, 201);
+}
+
+.deleteData {
+  color: rgb(211, 3, 3);
+  padding: 10px;
+  background-color: rgb(255, 205, 205);
+}
 
 hr.new3 {
   border-top: 2px dashed red;

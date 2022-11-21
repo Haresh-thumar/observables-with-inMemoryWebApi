@@ -62,6 +62,15 @@ export class BookService {
     return this.http.post<number>(this.storeBookUrl + '/' + book.id, book, options);
   }
 
+  // Put Delete Methods
+  deletebook(bookid: String): Observable<number> {
+    let httpheaders = new HttpHeaders().set('Content-Type', 'application/Json');
+    let options = {
+      headers: httpheaders
+    };
+    return this.http.delete<number>(this.storeBookUrl + '/' + bookid);
+  }
+
 }
 
 

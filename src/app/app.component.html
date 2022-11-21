@@ -105,6 +105,10 @@
     Record Saved Successfully
 </div>
 
+<div *ngIf="dataDeleted" ngClass="deleteData">
+  Record Saved Successfully
+</div>
+
 <form [formGroup]="bookform" (ngSubmit)="onFormSubmit()">
   <table>
     <tr>
@@ -153,5 +157,6 @@
     <td>{{item.email}}</td>
     <td>{{item.category}}</td>
     <td><button type="button" (click)="booktoedit(item.id)">Edit</button></td>
+    <td><button type="button" (click)="deleteBook(item.id)">Delete</button></td>
   </tr>
 </table>
