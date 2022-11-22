@@ -1,6 +1,6 @@
-<div style="text-align: center;">
+<!-- <div style="text-align: center;">
   <h1>Welcome to {{title}}</h1>
-</div>
+</div> -->
 
 
 <!--===============================================================================================================
@@ -101,8 +101,8 @@
 <!--===============================================================================================================
                                           HttpClient Post Method
 ================================================================================================================-->
-<div *ngIf="datasaved" ngClass="success">
-    Record Saved Successfully
+<!-- <div *ngIf="datasaved" ngClass="success">
+  Record Saved Successfully
 </div>
 
 <div *ngIf="dataDeleted" ngClass="deleteData">
@@ -129,7 +129,6 @@
     </tr>
     <tr>
       <td colspan="2">
-        <!-- <button [disabled]="bookform.invalid">Add</button> -->
         <button [disabled]="bookform.invalid">{{actionBtn?'Update':'Add'}}</button>
       </td>
     </tr>
@@ -159,4 +158,25 @@
     <td><button type="button" (click)="booktoedit(item.id)">Edit</button></td>
     <td><button type="button" (click)="deleteBook(item.id)">Delete</button></td>
   </tr>
-</table>
+</table> -->
+
+
+
+
+
+<!--===============================================================================================================
+                                            Session Storage
+================================================================================================================-->
+<nav [ngClass]="'menu'">
+  <ul>
+    <li>
+      <a routerLink="/company" routerLinkActive="active">Company</a>
+      <a routerLink="/person" routerLinkActive="active">Person</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div [ngClass]="'parent-container'">
+  <router-outlet></router-outlet>
+</div>

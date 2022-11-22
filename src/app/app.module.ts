@@ -11,11 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CompanyComponent } from './company/company.component';
+import { PersonComponent } from './person/person.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CompanyComponent,
+    PersonComponent,
   ],
   imports: [
     BrowserModule,
