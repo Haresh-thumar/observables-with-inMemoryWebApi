@@ -1,1 +1,10 @@
-<p>Welcome to company home !</p>
+<!-- <p>Welcome to company home !</p> -->
+
+
+<h3>Book List</h3>
+
+<ul>
+  <li *ngFor="let book of books | async">
+    Id:{{book.id}} - Name:{{book.name}} - Owner: {{book.owner}} - State:{{book.state}}
+  </li>
+</ul>

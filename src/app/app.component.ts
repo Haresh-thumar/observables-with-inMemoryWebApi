@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Book, BookService } from './book.service';
 import { map } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,6 +12,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'Haresh App';
+
+  constructor() { }
+
+  ngOnInit() { }
 
   /*==============================================================================
                       Use only Observables & subscribe method
@@ -91,72 +94,72 @@ export class AppComponent implements OnInit {
   /*==============================================================================
                             HttpClient Get Method
   ==============================================================================*/
-  datasaved: boolean = false;
-  dataDeleted: boolean = false;
-  bookform: FormGroup;
-  allBooks: Observable<Book[]>;
-  bookidToUpdate = null;
+  // datasaved: boolean = false;
+  // dataDeleted: boolean = false;
+  // bookform: FormGroup;
+  // allBooks: Observable<Book[]>;
+  // bookidToUpdate = null;
 
-  actionBtn: boolean = false;
+  // actionBtn: boolean = false;
 
-  constructor(private formbuilder: FormBuilder, private bookservice: BookService) { }
+  // constructor(private formbuilder: FormBuilder, private bookservice: BookService) { }
 
-  ngOnInit(): void {
-    this.bookform = this.formbuilder.group({
-      name: ['', [Validators.required]],
-      owner: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      category: ['', [Validators.required]],
-    })
-    this.getAll();
-  }
+  // ngOnInit(): void {
+  //   this.bookform = this.formbuilder.group({
+  //     name: ['', [Validators.required]],
+  //     owner: ['', [Validators.required]],
+  //     email: ['', [Validators.required]],
+  //     category: ['', [Validators.required]],
+  //   })
+  //   this.getAll();
+  // }
 
-  onFormSubmit() {
-    this.datasaved = false;
-    let book = this.bookform.value;
-    this.createBook(book);
-    this.bookform.reset();
-  }
+  // onFormSubmit() {
+  //   this.datasaved = false;
+  //   let book = this.bookform.value;
+  //   this.createBook(book);
+  //   this.bookform.reset();
+  // }
 
-  createBook(book: Book) {
-    if (this.bookidToUpdate == null){
-      this.bookservice.createbook(book).subscribe(book => {
-        this.datasaved = true
-        this.getAll();
-        this.bookidToUpdate = null;
-        window.alert("Form submit success...");
-    });
-  }else{
-    book.id = this.bookidToUpdate;
-    this.bookservice.Updatebook(book).subscribe(book => {
-      this.datasaved = true
-      this.getAll();
-      this.bookidToUpdate = null;
-      this.actionBtn=false;
-    });
-  }
-  }
+  // createBook(book: Book) {
+  //   if (this.bookidToUpdate == null){
+  //     this.bookservice.createbook(book).subscribe(book => {
+  //       this.datasaved = true
+  //       this.getAll();
+  //       this.bookidToUpdate = null;
+  //       window.alert("Form submit success...");
+  //   });
+  // }else{
+  //   book.id = this.bookidToUpdate;
+  //   this.bookservice.Updatebook(book).subscribe(book => {
+  //     this.datasaved = true
+  //     this.getAll();
+  //     this.bookidToUpdate = null;
+  //     this.actionBtn=false;
+  //   });
+  // }
+  // }
 
-  booktoedit(bookid:any){
-    this.bookservice.getBookById(bookid).subscribe(book => {
-      this.actionBtn = true;
-      this.bookidToUpdate = bookid;
-      this.bookform.patchValue(book);
-    });
+  // booktoedit(bookid:any){
+  //   this.bookservice.getBookById(bookid).subscribe(book => {
+  //     this.actionBtn = true;
+  //     this.bookidToUpdate = bookid;
+  //     this.bookform.patchValue(book);
+  //   });
 
-  }
+  // }
 
-  getAll() {
-    this.allBooks = this.bookservice.getbooksFromStore();
-  }
+  // getAll() {
+  //   this.allBooks = this.bookservice.getbooksFromStore();
+  // }
 
-  deleteBook(bookid:any){
-    this.bookservice.deletebook(bookid).subscribe(book => {
-      this.dataDeleted = true;
-      this.getAll();
-    });
-    this.dataDeleted = false;
-  }
+  // deleteBook(bookid:any){
+  //   this.bookservice.deletebook(bookid).subscribe(book => {
+  //     this.dataDeleted = true;
+  //     this.getAll();
+  //   });
+  //   this.dataDeleted = false;
+  // }
 
 
   // setInterval timing function in saved & deleted state

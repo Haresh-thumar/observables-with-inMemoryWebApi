@@ -23,3 +23,11 @@ export class TestDataComponent implements InMemoryDbService {
 
 }
 
+export class Book {
+  id: number;
+  name: string;
+  owner: string;
+  state: string;
+  constructor() { }
+}
+

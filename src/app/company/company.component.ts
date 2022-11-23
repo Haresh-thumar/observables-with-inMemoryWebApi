@@ -1,3 +1,6 @@
+import { BookService } from './../book.service';
+import { Book } from './../test-data';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,19 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor() { }
+  books: Observable<Book[]>
+
+  constructor(private BookServiceService: BookService) { }
 
   ngOnInit(): void {
 
-    let obj = {
-      fname: 'haresh', lname: 'kumar'
-    }
+    /*------------------- LocalStorage and SessionStorage -----------------*/
+    // let obj = {
+    //   fname: 'haresh', lname: 'kumar'
+    // }
 
     // Add Data in LocalStorage & SessionStorage
-    localStorage.setItem('ObjectId', JSON.stringify(obj)); // pass the Object
-    localStorage.setItem('userId', 'local Haresh-kumar'); // pass the String
-    localStorage.setItem('CustomerId', 'local Rutvik-kumar'); // pass the String
-    sessionStorage.setItem('sessionData', 'sessionStorage'); // pass the String
+    // localStorage.setItem('ObjectId', JSON.stringify(obj)); // pass the Object
+    // localStorage.setItem('userId', 'local Haresh-kumar'); // pass the String
+    // localStorage.setItem('CustomerId', 'local Rutvik-kumar'); // pass the String
+    // sessionStorage.setItem('sessionData', 'sessionStorage'); // pass the String
 
     // Delete Data From LocalStorage & SessionStorage (data will be null)
     // localStorage.removeItem('localData');
@@ -30,10 +36,10 @@ export class CompanyComponent implements OnInit {
     // sessionStorage.clear();
 
     // console the storage data
-    console.log(JSON.parse(localStorage.getItem('ObjectId')));  // Get the Object
-    console.log(localStorage.getItem('userId'));  // Get the String
-    console.log(localStorage.getItem('CustomerId')); // Get the String
-    console.log(sessionStorage.getItem('sessionData')); // Get the String
+    // console.log(JSON.parse(localStorage.getItem('ObjectId')));  // Get the Object
+    // console.log(localStorage.getItem('userId'));  // Get the String
+    // console.log(localStorage.getItem('CustomerId')); // Get the String
+    // console.log(sessionStorage.getItem('sessionData')); // Get the String
 
 
     // condition checking for Data LocalStorage & SessionStorage
@@ -45,12 +51,18 @@ export class CompanyComponent implements OnInit {
     // }
 
     // condition checking for Browser Support SessionStorage
-    if (window.sessionStorage) {
-      alert("SessionStorage Browser Supported");
-    }
-    else {
-      alert("SessionStorage Browser Not Supported");
-    }
+    // if (window.sessionStorage) {
+    //   alert("SessionStorage Browser Supported");
+    // }
+    // else {
+    //   alert("SessionStorage Browser Not Supported");
+    // }
+
+
+    /*------------------- Auxiliary Route -----------------*/
+    this.books = this.BookServiceService.getBooks();
+
+
   }
 
 
