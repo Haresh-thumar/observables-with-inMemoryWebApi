@@ -2,6 +2,7 @@ import { BookService } from './../book.service';
 import { Book } from './../test-data';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company',
@@ -12,7 +13,7 @@ export class CompanyComponent implements OnInit {
 
   books: Observable<Book[]>
 
-  constructor(private BookServiceService: BookService) { }
+  constructor(private BookServiceService: BookService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -61,9 +62,8 @@ export class CompanyComponent implements OnInit {
 
     /*------------------- Auxiliary Route -----------------*/
     this.books = this.BookServiceService.getBooks();
-
-
   }
+
 
 
 

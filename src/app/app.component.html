@@ -167,7 +167,7 @@
 <!--===============================================================================================================
                                             Session Storage
 ================================================================================================================-->
-<nav [ngClass]="'menu'">
+<!-- <nav [ngClass]="'menu'">
   <ul>
     <li>
       <a routerLink="/company" routerLinkActive="active">Company</a>
@@ -179,4 +179,25 @@
 
 <div [ngClass]="'parent-container'">
   <router-outlet></router-outlet>
+</div> -->
+
+
+
+
+<!--===============================================================================================================
+                                            Auxiliary Route
+================================================================================================================-->
+<nav [ngClass]="'menu'">
+  <ul>
+    <li>
+      <a routerLink="/company" routerLinkActive="active">Company</a>
+      <a [routerLink]="[{ outlets: { 'bookList': ['person'] } }]" routerLinkActive="active">Person</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div [ngClass]="'parent-container'">
+  <router-outlet></router-outlet>
+  <router-outlet name="bookList"></router-outlet>
 </div>

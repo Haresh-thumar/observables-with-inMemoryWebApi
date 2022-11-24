@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from './test-data';
-import { concat, of, asyncScheduler } from 'rxjs';
+import { of } from 'rxjs';
 
 
 const BOOKS: Book[] = [
@@ -13,7 +13,7 @@ const BOOKS: Book[] = [
   { "id": 5, "name": "css", "owner": "tuv", "state": "Telangana" },
 ];
 
-let booksobservable = Observable.of(BOOKS);
+let booksobservable = of(BOOKS);
 
 @Injectable({
   providedIn: 'root'
