@@ -1,3 +1,4 @@
+import { JqueryFileComponent } from './jquery-file/jquery-file.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/company', pathMatch: 'full' },
   { path: 'company', component: CompanyComponent },
   { path: 'person', component: PersonComponent, outlet: 'bookList' },
+  { path: 'jquery-file', component: JqueryFileComponent },
 ];
 
 @NgModule({

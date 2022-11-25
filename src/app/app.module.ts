@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanyComponent } from './company/company.component';
 import { PersonComponent } from './person/person.component';
+import { JqueryFileComponent } from './jquery-file/jquery-file.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { PersonComponent } from './person/person.component';
     AppComponent,
     CompanyComponent,
     PersonComponent,
+    JqueryFileComponent,
   ],
   imports: [
     BrowserModule,
