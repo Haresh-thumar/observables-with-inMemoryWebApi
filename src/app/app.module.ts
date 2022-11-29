@@ -1,19 +1,30 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BookService } from './book.service';
-import { TestDataComponent } from './test-data';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+
+/*======================== Import Modules ========================*/
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+/*======================== Custom Components =====================*/
+import { TestDataComponent } from './test-data';
 import { CompanyComponent } from './company/company.component';
 import { PersonComponent } from './person/person.component';
 import { JqueryFileComponent } from './jquery-file/jquery-file.component';
+import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './home/home.component';
+
+/*========================= Custom Services ======================*/
+import { BookService } from './book.service';
+import { ActivateGuard } from './activate.guard';
+import { UserService } from './user.service';
+import { Approutes } from './routing';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -22,10 +33,13 @@ import { JqueryFileComponent } from './jquery-file/jquery-file.component';
     CompanyComponent,
     PersonComponent,
     JqueryFileComponent,
+    AdminComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(Approutes),
     HttpClientModule,
     InMemoryWebApiModule.forRoot(TestDataComponent),
     BrowserAnimationsModule,
@@ -34,7 +48,7 @@ import { JqueryFileComponent } from './jquery-file/jquery-file.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [BookService],
+  providers: [BookService, ActivateGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -187,7 +187,7 @@
 <!--===============================================================================================================
                                             Auxiliary Route
 ================================================================================================================-->
-<nav [ngClass]="'menu'">
+<!-- <nav [ngClass]="''">
   <ul>
     <li>
       <a routerLink="/company" routerLinkActive="active">Company</a>
@@ -197,8 +197,29 @@
   </ul>
 </nav>
 
-
 <div [ngClass]="'parent-container'">
   <router-outlet></router-outlet>
   <router-outlet name="bookList"></router-outlet>
+</div> -->
+
+
+
+
+
+<!--===============================================================================================================
+                                            Auxiliary Route
+================================================================================================================-->
+<nav ngClass="menu">
+  <ul>
+    <li>
+      <a [routerLink]="['home']" routerLinkActive="active">Home</a>
+      <a [routerLink]="['admin']" routerLinkActive="active">Admin</a>
+    </li>
+  </ul>
+</nav>
+
+<div [ngClass]="'parent-container'">
+  <h3>
+    <router-outlet></router-outlet>
+  </h3>
 </div>

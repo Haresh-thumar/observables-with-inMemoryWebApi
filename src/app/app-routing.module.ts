@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'company', component: CompanyComponent },
   { path: 'person', component: PersonComponent, outlet: 'bookList' },
   { path: 'jquery-file', component: JqueryFileComponent },
+  { path: '**', component: PersonComponent },
 ];
 
 @NgModule({
