@@ -11,7 +11,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 /*======================== Custom Components =====================*/
 import { TestDataComponent } from './test-data';
@@ -23,9 +23,7 @@ import { HomeComponent } from './home/home.component';
 
 /*========================= Custom Services ======================*/
 import { BookService } from './book.service';
-import { ActivateGuard } from './activate.guard';
 import { UserService } from './user.service';
-import { Approutes } from './routing';
 import { RouterModule } from '@angular/router';
 
 
@@ -37,19 +35,20 @@ import { RouterModule } from '@angular/router';
     JqueryFileComponent,
     AdminComponent,
     HomeComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // RouterModule.forRoot(Approutes),
+    RouterModule,
     HttpClientModule,
-    // InMemoryWebApiModule.forRoot(TestDataComponent),
+    InMemoryWebApiModule.forRoot(TestDataComponent),
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   providers: [BookService, UserService],  // ActivateGuard
   bootstrap: [AppComponent]
