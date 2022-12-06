@@ -11,6 +11,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 /*======================== Custom Components =====================*/
 import { TestDataComponent } from './test-data';
 import { CompanyComponent } from './company/company.component';
@@ -39,16 +41,17 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(Approutes),
+    // RouterModule.forRoot(Approutes),
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(TestDataComponent),
+    // InMemoryWebApiModule.forRoot(TestDataComponent),
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule
   ],
-  providers: [BookService, ActivateGuard, UserService],
+  providers: [BookService, UserService],  // ActivateGuard
   bootstrap: [AppComponent]
 })
 export class AppModule { }

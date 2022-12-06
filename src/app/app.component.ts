@@ -13,6 +13,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'Haresh App';
 
+  isChecked: any;
+
+
   constructor() { }
 
   ngOnInit() { }
@@ -170,4 +173,15 @@ export class AppComponent implements OnInit {
   // ngOnInit(): void { }
 
 
+
+
+  myProperty = false;
+
+  checkValue(event: any) {
+    console.log('%c[ checkbox Event ]', 'font-size:13px; background:pink; color:#bf2c9f;', event);
+  }
+
+
+
 }
+

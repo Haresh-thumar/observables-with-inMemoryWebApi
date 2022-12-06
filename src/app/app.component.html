@@ -209,7 +209,7 @@
 <!--===============================================================================================================
                                             Auxiliary Route
 ================================================================================================================-->
-<nav ngClass="menu">
+<!-- <nav ngClass="menu">
   <ul>
     <li>
       <a [routerLink]="['home']" routerLinkActive="active">Home</a>
@@ -222,4 +222,25 @@
   <h3>
     <router-outlet></router-outlet>
   </h3>
+</div> -->
+
+
+
+
+<!--===============================================================================================================
+                                            Auxiliary Route
+================================================================================================================-->
+<div class="container">
+  <h3 style="text-align: center; font-size: 18px; font-weight: 500;">Hello Component Logic</h3>
+  <hr style="opacity: 0.3;">
+
+  <!-------- Get CheckBox Event -------->
+  <mat-checkbox class="example-margin" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'true':'false')">Current
+    Branch</mat-checkbox>
+  <br>
+
+  <!-------- Get CheckBox Event -------->
+  <mat-checkbox class="example-margin" [(ngModel)]="myProperty">to be Handle</mat-checkbox>
+  <h3>{{ myProperty }}</h3>
+
 </div>
