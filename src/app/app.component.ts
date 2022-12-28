@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BookService } from './book.service';
+import { Book } from './test-data';
 
 
 @Component({
@@ -16,24 +18,24 @@ export class AppComponent implements OnInit {
   isChecked: any;
 
 
-  constructor() { }
+  // constructor() { }
 
-  ngOnInit() { }
+  // ngOnInit() { }
 
   /*==============================================================================
                       Use only Observables & subscribe method
   ==============================================================================*/
-  // haxBooks: Book[] = [];
+  haxBooks: Book[] = [];
 
-  // ngOnInit(): void {
-  //   this.getHareshBooks();
-  // }
+  ngOnInit(): void {
+    this.getHareshBooks();
+  }
 
-  // constructor(private bookservice: BookService) { }
+  constructor(private bookservice: BookService) { }
 
-  // getHareshBooks() {
-  //   this.bookservice.getbooksFromStore().subscribe(books => this.haxBooks = books);
-  // }
+  getHareshBooks() {
+    this.bookservice.getbooksFromStore().subscribe(books => this.haxBooks = books);
+  }
 
 
   /*==============================================================================
@@ -174,12 +176,14 @@ export class AppComponent implements OnInit {
 
 
 
+  /*==============================================================================
+                              Get Checkbox Value
+  ==============================================================================*/
+  // myProperty = false;
 
-  myProperty = false;
-
-  checkValue(event: any) {
-    console.log('%c[ checkbox Event ]', 'font-size:13px; background:pink; color:#bf2c9f;', event);
-  }
+  // checkValue(event: any) {
+  //   console.log('%c[ checkbox Event ]', 'font-size:13px; background:pink; color:#bf2c9f;', event);
+  // }
 
 
 

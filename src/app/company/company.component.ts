@@ -61,7 +61,7 @@ export class CompanyComponent implements OnInit {
 
 
     /*------------------- Auxiliary Route -----------------*/
-    this.books = this.BookServiceService.getBooks();
+    // this.books = this.BookServiceService.getBooks();
   }
 
 

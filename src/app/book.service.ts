@@ -6,11 +6,11 @@ import { of } from 'rxjs';
 
 
 const BOOKS: Book[] = [
-  { "id": 1, "name": "java", "owner": "xyz", "state": "Gujrat" },
-  { "id": 2, "name": "python", "owner": "abc", "state": "Delhi" },
-  { "id": 3, "name": "angular", "owner": "pqr", "state": "Rajasthan" },
-  { "id": 4, "name": "html", "owner": "efg", "state": "Maharashtra" },
-  { "id": 5, "name": "css", "owner": "tuv", "state": "Telangana" },
+  { "id": 1, "name": "java", "owner": "xyz", "state": "Gujrat", "category": "mobile" },
+  { "id": 2, "name": "python", "owner": "abc", "state": "Delhi", "category": "tablet" },
+  { "id": 3, "name": "angular", "owner": "pqr", "state": "Rajasthan", "category": "laptop" },
+  { "id": 4, "name": "html", "owner": "efg", "state": "Maharashtra", "category": "desktop" },
+  { "id": 5, "name": "css", "owner": "tuv", "state": "Telangana", "category": "mobiter" },
 ];
 
 let booksobservable = of(BOOKS);
@@ -21,7 +21,7 @@ let booksobservable = of(BOOKS);
 
 export class BookService {
 
-  // bookUrl = "/api/books";
+  bookUrl = "/api/books";
 
   constructor(private http: HttpClient) { }
 
@@ -29,9 +29,9 @@ export class BookService {
   /*==============================================================================
                             Use Observables + async pipe
   ==============================================================================*/
-  // getbooksFromStore(): Observable<Book[]> {
-  //   return this.http.get<Book[]>(this.bookUrl);
-  // }
+  getbooksFromStore(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.bookUrl);
+  }
 
 
   /*==============================================================================
@@ -88,9 +88,9 @@ export class BookService {
   /*==============================================================================
                                   Auxiliary Route
   ==============================================================================*/
-  getBooks(): Observable<Book[]> {
-    return booksobservable;
-  }
+  // getBooks(): Observable<Book[]> {
+  //   return booksobservable;
+  // }
 
 
 
