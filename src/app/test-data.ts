@@ -29,6 +29,7 @@ export class Book {
   owner: string;
   state: string;
   category: string;
+  email: string;
   constructor() { }
 }
 

@@ -6,11 +6,11 @@ import { of } from 'rxjs';
 
 
 const BOOKS: Book[] = [
-  { "id": 1, "name": "java", "owner": "xyz", "state": "Gujrat", "category": "mobile" },
-  { "id": 2, "name": "python", "owner": "abc", "state": "Delhi", "category": "tablet" },
-  { "id": 3, "name": "angular", "owner": "pqr", "state": "Rajasthan", "category": "laptop" },
-  { "id": 4, "name": "html", "owner": "efg", "state": "Maharashtra", "category": "desktop" },
-  { "id": 5, "name": "css", "owner": "tuv", "state": "Telangana", "category": "mobiter" },
+  { "id": 1, "name": "java", "owner": "xyz", "state": "Gujrat", "category": "mobile", "email": "java@gmail.com" },
+  { "id": 2, "name": "python", "owner": "abc", "state": "Delhi", "category": "tablet", "email": "python@gmail.com" },
+  { "id": 3, "name": "angular", "owner": "pqr", "state": "Rajasthan", "category": "laptop", "email": "angular@gmail.com" },
+  { "id": 4, "name": "html", "owner": "efg", "state": "Maharashtra", "category": "desktop", "email": "html@gmail.com" },
+  { "id": 5, "name": "css", "owner": "tuv", "state": "Telangana", "category": "mobiter", "email": "css@gmail.com" },
 ];
 
 let booksobservable = of(BOOKS);

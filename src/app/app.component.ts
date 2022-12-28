@@ -167,14 +167,6 @@ export class AppComponent implements OnInit {
   // }
 
 
-  // setInterval timing function in saved & deleted state
-
-
-  // constructor() { }
-
-  // ngOnInit(): void { }
-
-
 
   /*==============================================================================
                               Get Checkbox Value
